@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    <script type="module" src="javascripts/contactApp.js"></script>
+    <title>Contact Manager</title>
+  </head>
+  <body>
+    <div class="columns container is-mobile">
+      <div class="column is-1"></div>
+      <div class="column is-3">
+        <br>
+        <h6 class="title is-6">Contact Dashboard</h6>
+        <button id='CreateBtn' class="button is-success is-outlined">Add Contact</button>
+        <br><br>
+        <h5 class="title is-5">Search by Tag:</h5>
+        <div id="TagBox" class="tags are-normal ">
+          <a id='viewAllTag' class="tag is-info is-rounded">view all</a>
+        </div>
+        <h5 class="title is-5">Search by Name:</h5>
+        <div class="control">
+          <input id="SeachBar" class="input is-normal" type="text" placeholder="Enter Name">
+        </div>
+      </div>
+      <div class="column">
+        <br><br>
+        <table id="ContactsView" class="table table is-striped table table is-hoverable">
+          <tr id='tableHeadings'>
+            <td class='has-background-primary-light is-size-6 has-text-weight-bold'>#</td>
+            <td class='has-background-primary-light is-size-6 has-text-weight-bold'>Name</td>
+            <td class='has-background-primary-light is-size-6 has-text-weight-bold'>Phone Number</td>
+            <td class='has-background-primary-light is-size-6 has-text-weight-bold'>Email</td>
+            <td class='has-background-primary-light is-size-6 has-text-weight-bold'>Tags</td>
+          </tr>
+        </table>
+        <h3 id='noContactsText'></h3>
+      </div>
+    </div> 
+    <div id='CreatingCtnModal' class="modal">
+      <div class="modal-background has-background-success-dark"></div>
+      <div class="modal-content">
+        <h3 class='title is-3 has-text-primary-light'>Create New Contact</h3>
+        <form id="CreatingCtnForm">
+          <label class="field label has-text-primary-light" for="full_name">Name:</label>
+          <input class="field control input" type="text" id='contactName' name='full_name' placeholder='Alex Jones' required>
+          <label class="field label has-text-primary-light" for="email">Email:</label>
+          <input class="field control input" type="email" id='email' name='email' placeholder="alex.jones@gmail.com" required pattern="[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+">
+          <label class="field label has-text-primary-light" for="phone_number">Phone Number:</label>
+          <input class="field control input" type="tel" id="phoneNumber" name="phone_number" placeholder="12345678901" required pattern="[\d]+">
+          <label class="field label has-text-primary-light" for="tags">Tags:</label>
+          <input class="field control input" type="text" id='tags' name='tags' placeholder="marketing, sales">
+          <div class="buttons field is-grouped">
+            <input type="submit" id='ConfirmNewCntBtn' value="Submit" class="button is-info"> 
+          </div>
+        </form>
+      </div>
+      <button id="CancelAdd" class="modal-close is-large" aria-label="close"></button>
+    </div>
+    <div id='EditCtnModal' class="modal">
+      <div class="modal-background has-background-success-dark"></div>
+      <div class="modal-content">
+        <h3 class='title is-3 has-text-primary-light'>Edit Contact</h3>
+        <form id="EditCtnForm">
+          <label class="field label has-text-primary-light" for="full_name">Name:</label>
+          <input class="field control input" type="text" id='existingContactName' name='full_name' placeholder='Alex Jones' required>
+          <label class="field label has-text-primary-light" for="email">Email:</label>
+          <input class="field control input" type="email" id='existingContactEmail' name='email' placeholder="alex.jones@gmail.com" required pattern="[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+">
+          <label class="field label has-text-primary-light" for="phone_number">Phone Number:</label>
+          <input class="field control input" type="tel" id="existingContacPhoneNumber" name="phone_number" placeholder="12345678901" required pattern="[\d]+">
+          <label class="field label has-text-primary-light" for="existingContactTags">Tags:</label>
+          <input class="field control input" type="text" id='existingContactTags' name='tags' placeholder="marketing, sales">
+          <div class="buttons field is-grouped">
+            <input type="submit" id='ConfirmEditsBtn' value="Confirm Changes" class="button is-info"> 
+            <button id='DeleteCtnBtn' class="button is-danger">Delete Contact</button>
+          </div>
+        </form>
+      </div>
+      <button id="CancelEdits" class="modal-close is-large" aria-label="close"></button>
+    </div>
+  </body>
+</html>

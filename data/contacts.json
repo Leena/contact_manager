@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "full_name": "Naveed",
+    "email": "nf@example.com",
+    "phone_number": "12345678901",
+    "tags": "swimming"
+  },
+  {
+    "id": 2,
+    "full_name": "Victor",
+    "email": "vpr@example.com",
+    "phone_number": "09876543210",
+    "tags": "work,teacher"
+  },
+  {
+    "id": 3,
+    "full_name": "Pete Hanson",
+    "email": "ph@example.com",
+    "phone_number": "54321098761",
+    "tags": "work,school"
+  },
+  {
+    "full_name": "Pura Palmisano",
+    "phone_number": "4535434432",
+    "email": "palmisano@outlook.com",
+    "tags": "marketing",
+    "id": 4
+  },
+  {
+    "full_name": "Ada Lovelace",
+    "phone_number": "1468294529",
+    "email": "alovelace@gmail.com",
+    "tags": "",
+    "id": 5
+  },
+  {
+    "full_name": "Alex Jones",
+    "phone_number": "6382946378",
+    "email": "alex.jones@sympatico.ca",
+    "tags": "tv",
+    "id": 6
+  }
+]
