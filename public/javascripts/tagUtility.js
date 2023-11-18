@@ -15,24 +15,24 @@ class TagUtility {
     let contacts = formatAllData(rawContacts);
     let uniqueTags = getUniqueTags(contacts);
     uniqueTags.sort();
-    uniqueTags.forEach(tag => {
+    uniqueTags.forEach((tag) => {
       let newTag = createNewTag(tag);
-      this.box.insertAdjacentElement('beforeend', newTag);
+      this.box.insertAdjacentElement("beforeend", newTag);
     });
   }
 
   bindViewAll(callback) {
-    this.viewAllTag.addEventListener('click', (event) => {
+    this.viewAllTag.addEventListener("click", (event) => {
       event.stopPropagation();
       callback();
     });
   }
 
   bindTagView(callback) {
-    this.box.addEventListener('click', (event) => {
+    this.box.addEventListener("click", (event) => {
       event.stopPropagation();
-      let tag = event.target.innerText; 
-      if (event.target.nodeName === 'A') {
+      let tag = event.target.innerText;
+      if (event.target.nodeName === "A") {
         callback(tag);
       }
     });
@@ -40,8 +40,8 @@ class TagUtility {
 }
 
 function createNewTag(tag) {
-  let newAnchor = document.createElement('a');
-  newAnchor.classList.add('tag','is-info', 'is-rounded');
+  let newAnchor = document.createElement("a");
+  newAnchor.classList.add("tag", "is-info", "is-rounded");
   newAnchor.id = tag;
   newAnchor.innerText = tag;
   return newAnchor;
@@ -49,9 +49,9 @@ function createNewTag(tag) {
 
 function getUniqueTags(list) {
   let newTags = [];
-  list.forEach(contact => {
-    if (contact['tags']) {
-      contact['tags'].forEach(tag => {
+  list.forEach((contact) => {
+    if (contact["tags"]) {
+      contact["tags"].forEach((tag) => {
         if (!newTags.includes(tag)) newTags.push(tag);
       });
     }
@@ -61,11 +61,11 @@ function getUniqueTags(list) {
 
 function formatAllData(source) {
   let contactCollection = [];
-  source.forEach(contact => {
-    let newContact = {}
-    Object.keys(contact).forEach(key => {
-      if (key === 'tags') {
-        if (contact[key]) { 
+  source.forEach((contact) => {
+    let newContact = {};
+    Object.keys(contact).forEach((key) => {
+      if (key === "tags") {
+        if (contact[key]) {
           newContact[key] = formatTag(contact[key]);
         } else {
           newContact[key] = contact[key];
@@ -80,7 +80,7 @@ function formatAllData(source) {
 }
 
 function formatTag(string) {
-  return string.split(',');
+  return string.split(",");
 }
 
-export {TagUtility}
+export { TagUtility };

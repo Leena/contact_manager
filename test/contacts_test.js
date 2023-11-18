@@ -1,22 +1,16 @@
-process.env.NODE_ENV = 'test';
-process.env.PORT = '4567';
-
-let chai = require('chai');
-var expect = require('chai').expect
-let chaiHttp = require('chai-http');
-let server = require('../contacts');
-let contactManager = require('../lib/contact_manager');
+const chai = require('chai');
+const expect = require('chai').expect
+const chaiHttp = require('chai-http');
+const server = require('../contacts');
+const contactManager = require('../lib/contact_manager');
 
 chai.use(chaiHttp);
-//Our parent block
 describe('Contacts', () => {
-    afterEach((done) => { //Before each test we empty the database
+    afterEach((done) => { 
       contactManager.removeAll();
       done();
     });
-/*
-  * Test the /GET route
-  */
+
   describe('GET api/contacts', () => {
     it('it should respond with JSON of empty array when there are no contacts', (done) => {
       chai.request(server)

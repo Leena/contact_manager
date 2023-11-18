@@ -1,11 +1,11 @@
 class SearchUtility {
   constructor() {
-    this.bar = document.querySelector('#SeachBar');
+    this.bar = document.querySelector("#SeachBar");
   }
 
   bindSearchView(callback) {
-    this.bar.addEventListener('keypress', (event) => {
-      if (event.key === 'Enter') {
+    this.bar.addEventListener("keypress", (event) => {
+      if (event.key === "Enter") {
         let searchText = this.bar.value.toLowerCase().trim();
         callback(searchText);
       }
@@ -13,4 +13,4 @@ class SearchUtility {
   }
 }
 
-export {SearchUtility}
+export { SearchUtility };
